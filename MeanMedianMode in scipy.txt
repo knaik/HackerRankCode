@@ -1,0 +1,20 @@
+In [22]: a = 10
+In [23]: b = '64630 11735 14216 99233 14470 4978 73429 38120 51135 67060'
+In [24]: import numpy as np
+In [25]: from scipy import stats
+In [26]: numbers = list(map(int, b.split()))
+In [27]: print(stats.mean(numbers))
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-27-e8fd6c4e6230> in <module>()
+----> 1 print(stats.mean(numbers))
+AttributeError: 'module' object has no attribute 'mean'
+In [28]: print(stats.tmean(numbers))
+43900.6
+In [29]: from scipy import ndimage
+In [30]: print(ndimage.median(numbers))
+44627.5
+In [31]: print(stats.mode(numbers)[0])
+[4978]
+In [32]: print(int(stats.mode(numbers)[0]))
+4978

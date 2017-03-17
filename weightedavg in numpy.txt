@@ -1,0 +1,60 @@
+Python 2.7.6 (default, Oct 26 2016, 20:30:19) 
+Type "copyright", "credits" or "license" for more information.
+IPython 4.1.2 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+In [1]: import numpy as np
+In [2]: elements = [10, 40, 30, 50, 20]
+In [3]: weights = [1, 2, 3, 4, 5]
+In [4]: print(np.average(elements, weights))
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-4-b79971a164ef> in <module>()
+----> 1 print(np.average(elements, weights))
+/usr/local/lib/python2.7/dist-packages/numpy/lib/function_base.pyc in average(a, axis, weights, returned)
+    933 
+    934     if weights is None:
+--> 935         avg = a.mean(axis)
+    936         scl = avg.dtype.type(a.size/avg.size)
+    937     else:
+
+/usr/local/lib/python2.7/dist-packages/numpy/core/_methods.pyc in _mean(a, axis, dtype, out, keepdims)
+     54     arr = asanyarray(a)
+     55 
+---> 56     rcount = _count_reduce_items(arr, axis)
+     57     # Make this warning show up first
+     58     if rcount == 0:
+
+/usr/local/lib/python2.7/dist-packages/numpy/core/_methods.pyc in _count_reduce_items(arr, axis)
+     48     items = 1
+     49     for ax in axis:
+---> 50         items *= arr.shape[ax]
+     51     return items
+     52 
+
+TypeError: tuple indices must be integers, not list
+
+In [5]: print(np.average(elements, weights=weights))
+32.0
+
+In [6]: a = '10 40 30 50 20'
+
+In [7]: b = '1 2 3 4 5'
+
+In [8]: elements2 = list(map(int, a.split()))
+
+In [9]: weights2 = list(map(int, b.split()))
+
+In [10]: print(np.average(elements2, weights=weights2))
+32.0
+
+In [11]: 
+KeyboardInterrupt
+
+In [11]: %save weighted.py
+'' was not found in history, as a file, url, nor in the user namespace.
+
+In [12]: %save?
+In [13]: 
